@@ -1,1 +1,24 @@
+name: Linux
 
+on:
+  push:
+    branches: [ "s390x" ]
+    paths-ignore:
+      - 'docs/**'
+      - STATUS
+      - CHANGES
+      - changes-entries/*
+    tags:
+      - 2.*
+  pull_request:
+    branches: [ "s390x" ]
+    paths-ignore:
+      - 'docs/**'
+      - STATUS
+      - CHANGES
+      - changes-entries/*
+
+jobs:
+  name: Running Dockerfile
+  build:
+    run: ./Docker/Dockerfile
