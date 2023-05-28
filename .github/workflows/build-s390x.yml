@@ -17,6 +17,7 @@ on:
       - STATUS
       - CHANGES
       - changes-entries/*
+  workflow_dispatch:
 
 jobs:
   name: Running Dockerfile
