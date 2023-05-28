@@ -1,23 +1,23 @@
-name: Linux
+name: Linux-s390x
 
 on:
-  # push:
-  #   branches: [ "s390x" ]
-  #   paths-ignore:
-  #     - 'docs/**'
-  #     - STATUS
-  #     - CHANGES
-  #     - changes-entries/*
-  #   tags:
-  #     - 2.*
-  # pull_request:
-  #   branches: [ "s390x" ]
-  #   paths-ignore:
-  #     - 'docs/**'
-  #     - STATUS
-  #     - CHANGES
-  #     - changes-entries/*
   workflow_dispatch:
+  push:
+    branches: [ "s390x" ]
+    paths-ignore:
+      - 'docs/**'
+      - STATUS
+      - CHANGES
+      - changes-entries/*
+    tags:
+      - 2.*
+  pull_request:
+    branches: [ "s390x" ]
+    paths-ignore:
+      - 'docs/**'
+      - STATUS
+      - CHANGES
+      - changes-entries/*
 
 jobs:
   run_script:
