@@ -1,7 +1,6 @@
 name: Linux-s390x
 
 on:
-  workflow_dispatch:
   push:
     branches: [ "s390x" ]
     paths-ignore:
@@ -18,19 +17,9 @@ on:
       - STATUS
       - CHANGES
       - changes-entries/*
+  workflow_dispatch:
 
 jobs:
-  run_script:
-    runs-on: self-hosted
-    strategy:
-      matrix:
-        architecture: [s390x]
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-
-      - name: Run script
-        run: |
-          chmod +x ./Docker/script.sh
-          ./Docker/script.sh
+  name: Running Dockerfile
+  build:
+    run: ./Docker/Dockerfile

@@ -11,6 +11,6 @@ RUN apt-get update && apt-get install -y \
 
 COPY . .
 
-RUN make
+RUN ./test/travis_run_linux.sh
 
 CMD ["echo", "Build is success"]
