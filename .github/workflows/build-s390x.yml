@@ -1,25 +1,33 @@
 name: Linux
 
 on:
-  push:
-    branches: [ "s390x" ]
-    paths-ignore:
-      - 'docs/**'
-      - STATUS
-      - CHANGES
-      - changes-entries/*
-    tags:
-      - 2.*
-  pull_request:
-    branches: [ "s390x" ]
-    paths-ignore:
-      - 'docs/**'
-      - STATUS
-      - CHANGES
-      - changes-entries/*
+  # push:
+  #   branches: [ "s390x" ]
+  #   paths-ignore:
+  #     - 'docs/**'
+  #     - STATUS
+  #     - CHANGES
+  #     - changes-entries/*
+  #   tags:
+  #     - 2.*
+  # pull_request:
+  #   branches: [ "s390x" ]
+  #   paths-ignore:
+  #     - 'docs/**'
+  #     - STATUS
+  #     - CHANGES
+  #     - changes-entries/*
   workflow_dispatch:
 
 jobs:
-  name: Running Dockerfile
-  build:
-    run: ./Docker/Dockerfile
+  run_script:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Run script
+      run: |
+        chmod +x ./Docker/script.sh
+        ./Docker/script.sh
