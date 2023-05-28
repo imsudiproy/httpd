@@ -21,13 +21,16 @@ on:
 
 jobs:
   run_script:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+    container:
+      image: linux-s390x:latest
+      platform: linux/s390x
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Run script
-      run: |
-        chmod +x ./Docker/script.sh
-        ./Docker/script.sh
+      - name: Run script
+        run: |
+          chmod +x ./Docker/script.sh
+          ./Docker/script.sh
